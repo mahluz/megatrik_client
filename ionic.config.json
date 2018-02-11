@@ -1,0 +1,8 @@
+{
+  "name": "ionic2Blue",
+  "app_id": "aab34680",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
