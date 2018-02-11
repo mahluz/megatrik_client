@@ -16,8 +16,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+
 @NgModule({
-    declarations: [MyApp],
+    declarations: [
+        MyApp,
+        ],
     providers: [
         BarcodeScanner, StatusBar, SplashScreen,
         ToastService, LoadingService,
@@ -31,7 +34,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
         IonicModule.forRoot(MyApp),
     ],
     bootstrap: [IonicApp],
-    entryComponents: [MyApp],
+    entryComponents: [
+        MyApp,
+        ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 

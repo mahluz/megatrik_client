@@ -9,14 +9,20 @@
 </ion-header>
 <!--Fist Screen Content-->
 <ion-content>
-    <div *ngIf="data.background!=null"  background-size default-background [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+    <!-- <div *ngIf="data.background!=null"  background-size default-background [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
         <div class="ionic-descript" text-center>
             <h2 item-title>{{data.title}}</h2>
             <h2 item-title>{{data.subtitle}}</h2>
             <p item-subtitle>{{data.subtitle2}}</p>
+            <button ion-button (click)="signup()">Signup</button>
+            <button ion-button (click)="login()" class="login">Login</button>
         </div>
         <a [href]="data.link">
             {{data.description}}
         </a>
-    </div>
+    </div> -->
+    <splash-screen-layout-1
+     [data]="params.data"
+     [events]="params.events">
+   </splash-screen-layout-1>
 </ion-content>
