@@ -23,4 +23,8 @@ export class MenuPage {
     console.log('ionViewDidLoad MenuPage');
   }
 
+  about(){
+  	this.navCtrl.push('AboutPage');
+  }
+
 }
