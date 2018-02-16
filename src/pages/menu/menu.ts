@@ -27,4 +27,12 @@ export class MenuPage {
   	this.navCtrl.push('AboutPage');
   }
 
+  help(){
+  	this.navCtrl.push('HelpPage');
+  }
+
+  material(){
+  	this.navCtrl.push('MaterialPage');
+  }
+
 }
