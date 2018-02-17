@@ -17,7 +17,7 @@ import { IService } from '../services/IService';
 export class MyApp {
     @ViewChild(Nav) nav: Nav;
 
-    rootPage = "HomePage";
+    rootPage:any;
     pages: any;
     params:any;
     leftMenuTitle: string;
@@ -29,6 +29,9 @@ export class MyApp {
         public menu: MenuController,
         private menuService: MenuService,
         public modalCtrl: ModalController) {
+
+        this.rootPage = "HomePage";
+
         this.initializeApp();
 
         this.pages = menuService.getAllThemes();

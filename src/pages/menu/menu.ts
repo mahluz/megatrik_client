@@ -35,4 +35,8 @@ export class MenuPage {
   	this.navCtrl.push('MaterialPage');
   }
 
+  service(){
+    this.navCtrl.push('ServicePage');
+  }
+
 }

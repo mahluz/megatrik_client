@@ -28,7 +28,7 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-6>
-				<ion-card>
+				<ion-card (click)="service()">
 				    <img src="http://www.premierheatingandcoolingsystems.com/wp-content/uploads/2014/12/heating-repair.jpg"/>
 				    <div class="card-title">Service</div>
 				    
@@ -44,16 +44,16 @@
 		</ion-row>
 		<ion-row>
 			<ion-col col-6>
-				<ion-card (click)="about()">
-				    <img src="http://www.krishnahyundai.com/upload/about.jpg" />
-				    <div class="card-title">About</div>
+				<ion-card (click)="help()">
+				    <img src="https://www.conres.com/it-products-solutions/wp-content/uploads/sites/2/2015/12/help-desk-support-managed-services.jpg"/>
+				    <div class="card-title">Help</div>
 				    
 			  	</ion-card>
 			</ion-col>
 			<ion-col col-6>
-				<ion-card (click)="help()">
-				    <img src="https://www.conres.com/it-products-solutions/wp-content/uploads/sites/2/2015/12/help-desk-support-managed-services.jpg"/>
-				    <div class="card-title">Help</div>
+				<ion-card (click)="about()">
+				    <img src="http://www.krishnahyundai.com/upload/about.jpg" />
+				    <div class="card-title">About</div>
 				    
 			  	</ion-card>
 			</ion-col>
