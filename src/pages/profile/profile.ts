@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { App } from 'ionic-angular';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,7 +17,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 	params:any={};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public auth:AuthServiceProvider,
+    public app:App) {
   		this.params.data = { 
     		"headerImage": "assets/images/background/2.jpg",
             "avatar": "assets/images/avatar/0.jpg",
@@ -36,6 +42,13 @@ export class ProfilePage {
       },
       'onItemClick': function (item: any) {
             console.log(item.title);
+            auth.logout().subscribe(allowed=>{
+              if(allowed){
+                app.getRootNav().setRoot("HomePage");
+              } else {
+
+              }
+            });
       },
     };
   }

@@ -1,6 +1,6 @@
 export class LoginItem {
 
-    username        : string;
+    email        : string;
     password        : string;
     register        : string;
     login           : string;
@@ -12,12 +12,12 @@ export class LoginItem {
     iconLock        : string;
 
   constructor(
-    username: string, password: string, register: string,
+    email: string, password: string, register: string,
     login: string, skip: string, logo: string,
     iconAccount: string, iconKey: string, iconLock: string,
     backgroundImage: string
   ) {
-    this.setUsername(username);
+    this.setEmail(email);
     this.setPassword(password);
     this.setRegister(register);
     this.setLogin(login);
@@ -29,12 +29,12 @@ export class LoginItem {
     this.setBackgroundImage(backgroundImage);
   }
 
-  setUsername(username: string):void {
-    this.username = username;
+  setEmail(email: string):void {
+    this.email = email;
   }
 
-  getUsername():string {
-    return this.username;
+  getEmail():string {
+    return this.email;
   }
 
   setPassword(password:string):void {

@@ -10,7 +10,7 @@ export class LoginLayout1 {
   @Input() data: any;
   @Input() events: any;
 
-  public username: string;
+  public email: string;
   public password: string;
 
   constructor() {}
@@ -18,7 +18,7 @@ export class LoginLayout1 {
   onEvent = (event: string): void => {
     if (this.events[event]) {
         this.events[event]({
-            'username' : this.username,
+            'email' : this.email,
             'password' : this.password
         });
     }

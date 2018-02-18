@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the ServicePage page.
@@ -14,27 +15,33 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'service.html',
 })
 export class ServicePage {
-	params:any={};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.params.data = {
+	params={};
+  services:any;
+  order={};
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public auth:AuthServiceProvider) {
+
+    auth.getService().subscribe(service=>{
+      this.services = service;
+      console.log(this.services);
+    });
+
+  	this.params = {
       "logo": "assets/images/logo/login-3.png",
-      "register": "Service Form",
+      "register": "Submit",
       "username": "Username",
-      "city": "City",
-      "country": "Country",
+      "province": "Province",
+      "regency": "Regency",
+      "district":"District",
+      "village":"Village",
       "password": "Password",
       "email": "Email",
+      "service":"service",
       "button": "submit",
       "skip": "Skip"
     }
-    this.params.events = {
-      onRegister: function(params) {
-          console.log('onRegister');
-      },
-      onSkip: function(params) {
-          console.log('onSkip');
-      }
-    };
   }
 
   ionViewDidLoad() {

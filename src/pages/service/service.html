@@ -13,9 +13,51 @@
 </ion-header>
 
 
-<ion-content>
-   <register-layout-1
-     [data]="params.data"
-     [events]="params.events">
-   </register-layout-1>
+<!-- Themes Register + logo -->
+<ion-content has-header background-size default-background>
+    <ion-grid>
+        <ion-row wrap padding>
+            <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                <!--Form-->
+                <div class="form">
+                    <!--Form Title-->
+                    <h1 title text-right>Service Form</h1>
+                    <!---Input field username-->
+                    <ion-item no-padding>
+                        <ion-label floating></ion-label>
+                        <ion-input required type="text" [(ngModel)]="order.username"></ion-input>
+                    </ion-item>
+                    <!---Input field password-->
+                    <ion-item no-padding>
+                        <ion-label floating></ion-label>
+                        <ion-input required type="password" [(ngModel)]="order.password"></ion-input>
+                    </ion-item>
+                    <!---Input field email-->
+                    <ion-item no-padding>
+                        <ion-label floating>Province</ion-label>
+                        <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="order.email"></ion-input>
+                    </ion-item>
+                    <!---Input field country-->
+                    <ion-item no-padding>
+                        <ion-label floating></ion-label>
+                        <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="order.country"></ion-input>
+                    </ion-item>
+                    <!---Input field city-->
+                    <ion-item no-padding>
+                        <ion-label floating></ion-label>
+                        <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="order.city"></ion-input>
+                    </ion-item>
+                    <!---Register button-->
+                    <button ion-button float-right clear button-clear (click)="onEvent('onRegister')">{{params.register}}</button>
+                </div>
+                <div logo>
+                    <!---Logo-->
+                    <img float-left [src]="params.logo" *ngIf="params.logo != null" />
+                    <!---Skip button-->
+                    <button ion-button float-right clear button-clear (click)="onEvent('onSkip')"></button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
+

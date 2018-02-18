@@ -1,4 +1,4 @@
-export const AppSettings = Object.freeze({
+export const AppSettings = {
     "IS_FIREBASE_ENABLED":false,
     "SHOW_START_WIZARD": false,
     "SUBSCRIBE": false,
@@ -17,4 +17,4 @@ export const AppSettings = Object.freeze({
     "MAP_KEY": {
         "apiKey": 'AIzaSyA4-GoZzOqYTvxMe52YQZch5JaCFN6ACLg'
     }
-});
+};

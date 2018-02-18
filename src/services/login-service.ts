@@ -32,7 +32,7 @@ export class LoginService implements IService {
 
     getDataForLayout1 = (): any => {
         return {
-            "username": "Username",
+            "email": "email",
             "password": "Password",
             "register": "Register",
             "login": "Login",
@@ -43,7 +43,7 @@ export class LoginService implements IService {
 
     getDataForLayout2 = (): any => {
         return {
-            "username": "Username",
+            "email": "email",
             "password": "Password",
             "register": "Register",
             "login": "Login",
