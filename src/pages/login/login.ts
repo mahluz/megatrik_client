@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
-import { ToastController, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { AlertController, LoadingController, Loading } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -25,8 +25,8 @@ export class LoginPage {
     public navParams: NavParams,
     public auth:AuthServiceProvider,
     private alertCtrl:AlertController,
-    private loadingCtrl:LoadingController,
-    public toastCtrl: ToastController) {
+    private loadingCtrl:LoadingController
+    ) {
   	this.params.data = {
      "email": "Email",
       "password": "Password",
@@ -71,18 +71,6 @@ export class LoginPage {
         },
         onSkip: function (params) {
             console.log('onSkip:' + JSON.stringify(params));
-        },
-        onFacebook: function (params) {
-            console.log('onFacebook:' + JSON.stringify(params));
-        },
-        onTwitter: function (params) {
-            console.log('onTwitter:' + JSON.stringify(params));
-        },
-        onGoogle: function (params) {
-            console.log('onGoogle:' + JSON.stringify(params));
-        },
-        onPinterest: function (params) {
-            console.log('onPinterest:' + JSON.stringify(params));
         },
     };
   }

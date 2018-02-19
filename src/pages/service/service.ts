@@ -15,17 +15,27 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
   templateUrl: 'service.html',
 })
 export class ServicePage {
-	params={};
+	
+  params={};
   services:any;
   order={};
+  provinces:any;
+  regencies:any;
+  districts:any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public auth:AuthServiceProvider) {
 
     auth.getService().subscribe(service=>{
-      this.services = service;
+      this.services = service["result"];
       console.log(this.services);
+    });
+
+    auth.getProvince().subscribe(province=>{
+      this.provinces = province["result"];
+      console.log(this.provinces);
     });
 
   	this.params = {
@@ -46,6 +56,18 @@ export class ServicePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ServicePage');
+  }
+
+  getRegency(){
+    console.log("province",this.order["province"]);
+    // this.auth.getRegency().subscribe(regency=>{
+    //   this.regencies = regency["result"];
+    //   console.log(this.regencies);
+    // });
+  }
+
+  getDistrict(){
+
   }
 
 }

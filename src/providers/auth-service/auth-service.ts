@@ -83,4 +83,46 @@ export class AuthServiceProvider {
     });
   }
 
+  public getProvince(){
+    return Observable.create(observer=>{
+      this.storage.get('token').then(token=>{
+        this.http.post(this.url+"api/getProvince",{token:token}).subscribe(result=>{
+          observer.next(result);
+          observer.complete();
+        },error=>{
+          observer.next(error);
+          observer.complete();
+        });
+      });
+    });
+  }
+
+  public getRegency(){
+    return Observable.create(observer=>{
+      this.storage.get('token').then(token=>{
+        this.http.post(this.url+"api/getRegency",{token:token}).subscribe(result=>{
+          observer.next(result);
+          observer.complete();
+        },error=>{
+          observer.next(error);
+          observer.complete();
+        });
+      });
+    });
+  }
+
+  public getDistrict(){
+    return Observable.create(observer=>{
+      this.storage.get('token').then(token=>{
+        this.http.post(this.url+"api/getDistrict",{token:token}).subscribe(result=>{
+          observer.next(result);
+          observer.complete();
+        },error=>{
+          observer.next(error);
+          observer.complete();
+        });
+      });
+    });
+  }
+
 }

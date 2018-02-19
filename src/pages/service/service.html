@@ -24,28 +24,31 @@
                     <h1 title text-right>Service Form</h1>
                     <!---Input field username-->
                     <ion-item no-padding>
-                        <ion-label floating></ion-label>
-                        <ion-input required type="text" [(ngModel)]="order.username"></ion-input>
-                    </ion-item>
-                    <!---Input field password-->
-                    <ion-item no-padding>
-                        <ion-label floating></ion-label>
-                        <ion-input required type="password" [(ngModel)]="order.password"></ion-input>
+                        <ion-label floating>Service</ion-label>
+                        <!-- <ion-input required type="text" [(ngModel)]="order.username"></ion-input> -->
+                        <ion-select [(ngModel)]="order.service">
+                            <ion-option *ngFor="let service of services" value="{{ service['id'] }}">
+                                {{ service["service"] }}
+                            </ion-option>
+                        </ion-select>
                     </ion-item>
                     <!---Input field email-->
                     <ion-item no-padding>
                         <ion-label floating>Province</ion-label>
-                        <ion-input required type="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required [(ngModel)]="order.email"></ion-input>
+                        <ion-select [(ngModel)]="order.province" ng-change="getRegency()">
+                            <ion-option *ngFor="let province of provinces" value="{{ province['name'] }}">
+                                {{ province["name"] }}
+                            </ion-option>
+                        </ion-select>
                     </ion-item>
-                    <!---Input field country-->
-                    <ion-item no-padding>
-                        <ion-label floating></ion-label>
-                        <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="order.country"></ion-input>
-                    </ion-item>
-                    <!---Input field city-->
-                    <ion-item no-padding>
-                        <ion-label floating></ion-label>
-                        <ion-input required type="text" pattern="[a-zA-Z ]*" required [(ngModel)]="order.city"></ion-input>
+                    <!---Input field email-->
+                    <ion-item no-padding *ngIf="order.province != null">
+                        <ion-label floating>Regency</ion-label>
+                        <ion-select [(ngModel)]="order.regency" *ngIf="regencies != null">
+                            <ion-option *ngFor="let province of provinces" value="{{ regency['name'] }}">
+                                {{ regency["name"] }}
+                            </ion-option>
+                        </ion-select>
                     </ion-item>
                     <!---Register button-->
                     <button ion-button float-right clear button-clear (click)="onEvent('onRegister')">{{params.register}}</button>
