@@ -97,10 +97,14 @@ export class AuthServiceProvider {
     });
   }
 
-  public getRegency(){
+  public getRegency(province){
     return Observable.create(observer=>{
       this.storage.get('token').then(token=>{
-        this.http.post(this.url+"api/getRegency",{token:token}).subscribe(result=>{
+        let access = {
+          token:token,
+          province:province
+        };
+        this.http.post(this.url+"api/getRegency",access).subscribe(result=>{
           observer.next(result);
           observer.complete();
         },error=>{
@@ -111,10 +115,14 @@ export class AuthServiceProvider {
     });
   }
 
-  public getDistrict(){
+  public getDistrict(province){
     return Observable.create(observer=>{
       this.storage.get('token').then(token=>{
-        this.http.post(this.url+"api/getDistrict",{token:token}).subscribe(result=>{
+        let access = {
+          token:token,
+          province:province
+        };
+        this.http.post(this.url+"api/getDistrict",access).subscribe(result=>{
           observer.next(result);
           observer.complete();
         },error=>{

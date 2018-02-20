@@ -60,14 +60,18 @@ export class ServicePage {
 
   getRegency(){
     console.log("province",this.order["province"]);
-    // this.auth.getRegency().subscribe(regency=>{
-    //   this.regencies = regency["result"];
-    //   console.log(this.regencies);
-    // });
+    this.auth.getRegency(this.order["province"]).subscribe(regency=>{
+      this.regencies = regency["result"];
+      console.log(this.regencies);
+    });
   }
 
   getDistrict(){
-
+    console.log("regency",this.order["regency"]);
+    this.auth.getDistrict(this.order["province"]).subscribe(district=>{
+      // this.districts = district["result"];
+      console.log(district);
+    });
   }
 
 }

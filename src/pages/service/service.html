@@ -35,7 +35,7 @@
                     <!---Input field email-->
                     <ion-item no-padding>
                         <ion-label floating>Province</ion-label>
-                        <ion-select [(ngModel)]="order.province" ng-change="getRegency()">
+                        <ion-select [(ngModel)]="order.province" (ionChange)="getRegency()">
                             <ion-option *ngFor="let province of provinces" value="{{ province['name'] }}">
                                 {{ province["name"] }}
                             </ion-option>
@@ -44,11 +44,25 @@
                     <!---Input field email-->
                     <ion-item no-padding *ngIf="order.province != null">
                         <ion-label floating>Regency</ion-label>
-                        <ion-select [(ngModel)]="order.regency" *ngIf="regencies != null">
-                            <ion-option *ngFor="let province of provinces" value="{{ regency['name'] }}">
+                        <ion-select [(ngModel)]="order.regency" (ionChange)="getDistrict()">
+                            <ion-option *ngFor="let regency of regencies" value="{{ regency['name'] }}">
                                 {{ regency["name"] }}
                             </ion-option>
                         </ion-select>
+                    </ion-item>
+                    <!---Input field email-->
+                    <ion-item no-padding *ngIf="order.regency != null">
+                        <ion-label floating>Regency</ion-label>
+                        <ion-select [(ngModel)]="order.district">
+                            <ion-option *ngFor="let district of districts" value="{{ district['name'] }}">
+                                {{ district["name"] }}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                    <!---Input field username-->
+                    <ion-item no-padding>
+                        <ion-label floating>Address</ion-label>
+                        <ion-input required type="text" [(ngModel)]="order.address"></ion-input>
                     </ion-item>
                     <!---Register button-->
                     <button ion-button float-right clear button-clear (click)="onEvent('onRegister')">{{params.register}}</button>
