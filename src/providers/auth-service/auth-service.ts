@@ -115,12 +115,12 @@ export class AuthServiceProvider {
     });
   }
 
-  public getDistrict(province){
+  public getDistrict(regency){
     return Observable.create(observer=>{
       this.storage.get('token').then(token=>{
         let access = {
           token:token,
-          province:province
+          regency:regency
         };
         this.http.post(this.url+"api/getDistrict",access).subscribe(result=>{
           observer.next(result);
@@ -129,6 +129,25 @@ export class AuthServiceProvider {
           observer.next(error);
           observer.complete();
         });
+      });
+    });
+  }
+
+  public onOrder(data){
+    return Observable.create(observer=>{
+      this.storage.get('token').then(token=>{
+        let access = {
+          token:token,
+          data:data
+        }
+        this.http.post(this.url+"api/onOrder",access).subscribe(result=>{
+          observer.next(result);
+          observer.complete();
+        },error=>{
+          observer.next(error);
+          observer.complete();
+        });
+
       });
     });
   }

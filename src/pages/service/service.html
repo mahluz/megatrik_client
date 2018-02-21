@@ -14,7 +14,7 @@
 
 
 <!-- Themes Register + logo -->
-<ion-content has-header background-size default-background>
+<ion-content has-header background-size default-background>  
     <ion-grid>
         <ion-row wrap padding>
             <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
@@ -65,8 +65,9 @@
                         <ion-input required type="text" [(ngModel)]="order.address"></ion-input>
                     </ion-item>
                     <!---Register button-->
-                    <button ion-button float-right clear button-clear (click)="onEvent('onRegister')">{{params.register}}</button>
+                    <button ion-button float-right clear button-clear (click)="onOrder">{{params.register}}</button>
                 </div>
+                <div #map id="map"></div>
                 <div logo>
                     <!---Logo-->
                     <img float-left [src]="params.logo" *ngIf="params.logo != null" />
@@ -74,6 +75,7 @@
                     <button ion-button float-right clear button-clear (click)="onEvent('onSkip')"></button>
                 </div>
             </ion-col>
+
         </ion-row>
     </ion-grid>
 </ion-content>

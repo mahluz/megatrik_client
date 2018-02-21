@@ -9,6 +9,10 @@ page-service {
     max-height: 50px;
   }
 
+  #map_canvas{
+    height:50%;
+  }
+
   .form {
     background: #fff;
     border-radius: $border-radius;
@@ -34,10 +38,4 @@ page-service {
     }
   }
 
-  [logo] {
-    [button-clear] {
-      color: theme-colors('textColors', 'accent-first') !important;
-      font-weight: 300;
-    }
-  }
 }

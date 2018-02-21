@@ -68,10 +68,14 @@ export class ServicePage {
 
   getDistrict(){
     console.log("regency",this.order["regency"]);
-    this.auth.getDistrict(this.order["province"]).subscribe(district=>{
-      // this.districts = district["result"];
-      console.log(district);
+    this.auth.getDistrict(this.order["regency"]).subscribe(district=>{
+      this.districts = district["result"];
+      console.log(this.districts);
     });
+  }
+
+  onOrder(){
+    // this.auth.onOrder()
   }
 
 }
